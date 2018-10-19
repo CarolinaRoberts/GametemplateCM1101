@@ -29,8 +29,13 @@ def remove_punct(text):
     
     
 def remove_spaces(text):
-
-    return " ".join(text.split())
+    
+    if text == "":
+        return text
+    else:
+        text = text.strip()
+        return text
+    
 
     """This function is used to remove leading and trailing spaces from a string.
     It takes a string and returns a new string with does not have leading and
@@ -63,11 +68,10 @@ def normalise_input(user_input):
     'help'
     """
 
-    normalised_string = remove_punct(user_input)
-    normalised_string = remove_spaces(user_input)
-    normalised_string = remove_punct(user_input).lower()
-
-    return(normalised_string)
+    user_input = remove_punct(user_input)
+    user_input = remove_spaces(user_input)
+    user_input = str(user_input).lower()
+    return user_input
     
     pass
 
